@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Time Bot</title>
+</head>
+<body>
+    <h1>Time Bot</h1>
+    <p>Ask me: "What is the time?"</p>
+    <button onclick="getTime()">Ask</button>
+    <p id="timeResult"></p>
+
+    <script>
+        function getTime() {
+            // Get the current time
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+
+            // Convert to 12-hour format
+            hours = hours % 12;
+            hours = hours ? hours : 12; // 0 should be 12
+
+            // Format the time
+            var timeString = hours + ':' + (minutes < 10 ? '0' + minutes : minutes) + ' ' + ampm;
+
+            // Display the time
+            document.getElementById('timeResult').innerText = "Current time is " + timeString;
+        }
+    </script>
+</body>
+</html>
